@@ -31,7 +31,7 @@ class HowUsedBotAPI:
             data['param_3'] = param_3
 
         Thread(target=post, args=(self.api,),
-               kwargs={"data": data}).start()
+               kwargs={"data": data}, daemon=True).start()
 
     def get_stats(self, params: dict) -> str:
         url = self.view_url + '?token=' + self.view_token + '&id=' + str(self.bot_id)
